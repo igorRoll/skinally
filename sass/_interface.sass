@@ -29,6 +29,8 @@ img
     background-color: $primary
     color: #fff
     +bold
+    &:hover
+        cursor: pointer
     &_lg
         
     &-fitting
@@ -73,7 +75,9 @@ input[type="checkbox"]
 
 
 @media ( max-width: 576px )
-    .button-o
+    .button
+        font-size: 10px
+        &-o
         font-size: 10px
     .section
         padding: 60px 0
