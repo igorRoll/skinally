@@ -29,5 +29,15 @@ $(window).load(function() {
         $("html, body").animate({scrollTop: $(_href).offset().top -120 + "px"});
         return false;
     });
-    $("input[type='tel']").mask("+7 (999) 999-99-99")
+    $("input[type='tel']").mask("+7 (999) 999-99-99");
+    /* Показывать карту только тогда, когда докрутили до нее */
+    var reviews = $('.reviews');
+    var reviewsTop = reviews.offset().top;
+    $(window).bind('scroll', function() {
+        var windowTop = $(this).scrollTop();
+        if (windowTop > reviewsTop) {
+            $('#map').html('<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2000.130387289754!2d30.46479678758415!3d50.45102989500899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc73ace0bff29ff16!2sSmart%20Plaza%20Polytech!5e0!3m2!1sru!2sua!4v1591943340578!5m2!1sru!2sua" width="100%" height="410" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>')
+            $(window).unbind('scroll');
+        }
+    });
 });
